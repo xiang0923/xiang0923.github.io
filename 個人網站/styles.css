@@ -1,0 +1,102 @@
+/* Common styles extracted for quality and maintenance */
+:root {
+  --primary: #FFD700;
+  --dark-bg: #111;
+  --light: #f5f5f5;
+  --section-gap: 4rem;
+  --link-font: 1.2rem;
+  --card-radius: 20px;
+  --card-shadow: 0 6px 32px 0 rgba(0,0,0,0.13), 0 1.5px 4px 0 rgba(0,0,0,0.06);
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base typography */
+body {
+  background: var(--dark-bg);
+  color: var(--light);
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary);
+  color: var(--dark-bg);
+  padding: 0.5rem;
+  z-index: 200;
+  transition: top 0.3s ease;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Navigation */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--dark-bg);
+  padding: 1rem 1.5rem;
+  z-index: 100;
+  display: flex;
+  justify-content: flex-end;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* Main content spacing */
+main {
+  padding-top: 5rem; /* Offset for fixed nav */
+}
+.section {
+  padding: var(--section-gap) 1rem;
+}
+
+/* Images and cards */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--card-radius);
+}
+.card {
+  background: var(--light);
+  color: var(--dark-bg);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  padding: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    justify-content: center;
+  }
+  .nav-links {
+    gap: 1rem;
+  }
+}

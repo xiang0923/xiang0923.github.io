@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>曾鼎翔｜自我介紹</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="enhancements.css">
+  <meta name="description" content="曾鼎翔的個人網站，包括自我介紹、履歷、專案與關於我等內容。">
+  <meta property="og:title" content="曾鼎翔｜自我介紹">
+  <meta property="og:description" content="歡迎瀏覽曾鼎翔的自我介紹。">
+  <link rel="icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
+  <style>
+    :root {
+      --primary: #FFD700;
+      --dark-bg: #111;
+      --light: #f5f5f5;
+      --link-font: 1.3rem;
+      --nav-font: 1.5rem;
+      --hero-title: 5rem;
+      --hero-sub: 2rem;
+      --card-w: 500px;
+      --card-h: 650px;
+      --social-size: 2rem;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:'Poppins',sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1f1f1f 100%);
+      color:var(--light);
+      overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit;}
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--dark-bg);
+      padding: 1rem 0.1rem;
+      z-index: 100;
+      display: flex;
+      justify-content: flex-end;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      padding-right: 1.5rem;
+    }
+    .nav-links a {
+      font-size: 1.6rem !important;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: var(--light);
+      position: relative;
+      transition: color .3s, transform .3s;
+      text-decoration: none;
+      line-height: 1;
+      padding-top: 2px;
+      letter-spacing: 1.2px;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 100%; height: 3px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+      transform: scale(1.07);
+    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      transform: scaleX(1);
+    }
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 1s cubic-bezier(.23,.89,.58,1.19) 0.2s both;
+    }
+    .fade-in-left {
+      opacity: 0;
+      transform: translateX(-60px);
+      animation: fadeInLeft 1s cubic-bezier(.23,.89,.58,1.19) 0.5s both;
+    }
+    .fade-in-right {
+      opacity: 0;
+      transform: translateX(60px);
+      animation: fadeInRight 1s cubic-bezier(.23,.89,.58,1.19) 0.7s both;
+    }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInLeft {
+      to { opacity: 1; transform: translateX(0);}
+    }
+    @keyframes fadeInRight {
+      to { opacity: 1; transform: translateX(0);}
+    }
+    /* ========================== */
+
+    #hero{height:100vh;display:flex;align-items:center;justify-content:center;padding-top:4rem;position:relative;}
+    #hero::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.5);}
+    .hero-content{position:relative;display:flex;gap:5rem;max-width:1200px;width:100%;padding:3rem;}
+    .card-wrapper{perspective:1500px;width:var(--card-w);height:var(--card-h);}
+    .card{width:100%;height:100%;transform-style:preserve-3d;animation:idleSwing 4s ease-in-out infinite;}
+    @keyframes idleSwing{0%,100%{transform:rotateY(-10deg) rotateX(8deg);}50%{transform:rotateY(10deg) rotateX(-8deg);}}
+    .card-face{position:absolute;inset:0;border-radius:28px;background:linear-gradient(145deg,#1a1a1a,#111);border:1px solid var(--primary);box-shadow:0 24px 48px rgba(0,0,0,0.6),inset 0 0 40px rgba(255,215,0,0.4);backface-visibility:hidden;overflow:hidden;}
+    .card-front{transform:rotateY(0deg) translateZ(1px);}
+    .card-back{transform:rotateY(180deg) translateZ(1px);}
+    .marquee-line{position:absolute;top:0;left:0;width:200%;height:100%;background:linear-gradient(to right,transparent 0%,rgba(216,175,110,0.2)50%,transparent 100%);transform-origin:top left;animation:marquee 8s linear infinite;}
+    .marquee-line:nth-child(1){--angle:0deg;} .marquee-line:nth-child(2){--angle:180deg;}
+    .marquee-line{transform:rotate(var(--angle)) translateX(-50%);}
+    @keyframes marquee{from{transform:rotate(var(--angle)) translateX(-50%);}to{transform:rotate(var(--angle)) translateX(150%);}}
+    .card-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;}
+    .profile-photo{width:220px;height:220px;border-radius:50%;object-fit:cover;border:4px solid var(--primary);margin-bottom:2rem;}
+    .card-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-shadow: 0 2px 16px #111, 0 0 8px #FFD70088;
+}
+
+    .social-icons{display:flex;gap:1rem;margin-top:1rem;}
+    .social-icons img{width:32px;height:32px;transition:transform .3s;}
+    .social-icons a:hover img{transform:scale(1.2);}
+    .card-wrapper:hover .card{animation-play-state:paused;}
+    .hero-text{flex:1;display:flex;flex-direction:column;justify-content:center;}
+    .hero-text h1{font-size:var(--hero-title);white-space:nowrap;margin-bottom:1rem;}
+    .hero-text p{font-size:var(--hero-sub);margin-bottom:2.5rem;}
+    button{padding:1.2rem 2.5rem;border:none;cursor:pointer;font-size:var(--link-font);margin-right:1.5rem;}
+    .btn-primary{background:var(--primary);color:#000;}
+    .btn-outline{border:2px solid var(--light);background:transparent;color:var(--light);}
+    .btn-outline:hover{background:var(--light);color:var(--dark-bg);}
+    footer{padding:1.5rem;text-align:center;background:var(--dark-bg);font-size:1rem;color:#777;}
+    #particle-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:50;}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳至主內容</a>
+  <canvas id="particle-canvas"></canvas>
+  <nav>
+    <div class="nav-links">
+      <a href="自我介紹.html" class="active">HOME</a>
+      <a href="resume.html">RESUME</a>
+      <a href="projects.html">PROJECTS</a>
+      <a href="about.html">ABOUT</a>
+    </div>
+  </nav>
+  <section id="hero">
+    <div class="hero-content fade-in-up">
+      <div class="card-wrapper fade-in-left">
+        <div class="card">
+          <div class="card-face card-front">
+            <div class="marquee-line"></div><div class="marquee-line"></div>
+            <div class="card-content">
+              <img src="avatar.jpg" alt="Profile Photo" class="profile-photo" loading="lazy">
+              <h1>Xiang</h1>
+              <div class="social-icons">
+                <a href="https://www.facebook.com/Disontseng?locale=zh_TW" target="_blank"><img src="sm_5afaf0c42f0c8.jpg" alt="Facebook" loading="lazy"></a>
+                <a href="https://www.instagram.com/xiang.9_23/" target="_blank"><img src="images.jpg" alt="Instagram" loading="lazy"></a>
+                <a href="https://line.me/ti/p/XJdRsXUtG5" target="_blank"><img src="sm_5b321ca4f02e2.jpg" alt="Line" loading="lazy"></a>
+                <a href="mailto:disontseng@gmail.com"><img src="images (1).jpg" alt="Email" loading="lazy"></a>
+              </div>
+            </div>
+          </div>
+          <div class="card-face card-back">
+            <div class="marquee-line"></div><div class="marquee-line"></div>
+            <div class="card-content">
+              <img src="avatar.jpg" alt="Profile Photo" class="profile-photo" loading="lazy">
+              <h1>Xiang</h1>
+              <div class="social-icons">
+                <a href="https://www.facebook.com/Disontseng?locale=zh_TW" target="_blank"><img src="sm_5afaf0c42f0c8.jpg" alt="Facebook" loading="lazy"></a>
+                <a href="https://www.instagram.com/xiang.9_23/" target="_blank"><img src="images.jpg" alt="Instagram" loading="lazy"></a>
+                <a href="https://line.me/ti/p/XJdRsXUtG5" target="_blank"><img src="sm_5b321ca4f02e2.jpg" alt="Line" loading="lazy"></a>
+                <a href="mailto:disontseng@gmail.com"><img src="images (1).jpg" alt="Email" loading="lazy"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-text fade-in-right">
+        <h1>Hello, I'm 曾鼎翔</h1>
+        <p>韌體 & AI 愛好者 / 台東大學 綠資系</p>
+        <button class="btn btn-primary" onclick="window.location.href='resume.html'">RESUME</button>
+        <button class="btn btn-outline" onclick="window.location.href='projects.html'">PROJECTS</button>
+      </div>
+    </div>
+  </section>
+  <footer>
+    © 2025 曾鼎翔 | Powered by GitHub Pages
+  </footer>
+  <script>
+    const canvas=document.getElementById('particle-canvas'),ctx=canvas.getContext('2d');let particles=[];const colors=['#FFD700','#FFA500','#FFF'];
+    function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}window.addEventListener('resize',resize);resize();
+    document.addEventListener('mousemove',e=>{for(let i=0;i<3;i++)particles.push({x:e.clientX,y:e.clientY,vx:(Math.random()-0.5)*2,vy:(Math.random()-0.5)*2,life:60,color:colors[Math.floor(Math.random()*colors.length)]});});
+    document.addEventListener('click',e=>{for(let i=0;i<50;i++)particles.push({x:e.clientX,y:e.clientY,vx:(Math.random()-0.5)*6,vy:(Math.random()-0.5)*6,life:80,color:colors[Math.floor(Math.random()*colors.length)]});});
+    function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles=particles.filter(p=>p.life>0);particles.forEach(p=>{ctx.beginPath();ctx.arc(p.x,p.y,p.life/20,0,2*Math.PI);ctx.fillStyle=p.color;ctx.fill();p.x+=p.vx;p.y+=p.vy;p.life--;});requestAnimationFrame(animate);}animate();
+  </script>
+  <script src="enhancements.js"></script>
+</body>
+</html>

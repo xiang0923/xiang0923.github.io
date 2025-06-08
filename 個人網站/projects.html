@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>曾鼎翔｜Projects</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="enhancements.css">
+  <meta name="description" content="曾鼎翔的個人網站，包括自我介紹、履歷、專案與關於我等內容。">
+  <meta property="og:title" content="曾鼎翔｜Projects">
+  <meta property="og:description" content="歡迎瀏覽曾鼎翔的Projects。">
+  <link rel="icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #FFD700;
+      --dark-bg: #111;
+      --light: #f5f5f5;
+      --section-gap: 4rem;
+      --link-font: 1.2rem;
+      --card-radius: 20px;
+      --card-shadow: 0 6px 32px 0 rgba(0,0,0,0.13), 0 1.5px 4px 0 rgba(0,0,0,0.06);
+      --card-hover-shadow: 0 12px 36px 0 rgba(255,215,0,0.13), 0 2px 8px 0 rgba(0,0,0,0.12);
+      --tech-bg: rgba(255,255,255,0.10);
+      --tech-radius: 1.1rem;
+      --tech-padding: 0.23rem 0.85rem;
+      --tech-gap: 0.5rem;
+      --main-max-width: 860px;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins',sans-serif;
+      background: var(--dark-bg);
+      color: var(--light);
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+    @keyframes fadeIn { to { opacity: 1; } }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--dark-bg);
+      padding: 1rem 0.1rem;
+      z-index: 100;
+      display: flex;
+      justify-content: flex-end;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+    .nav-links { display: flex; gap: 2rem; align-items: center; padding-right: 1.5rem; }
+    .nav-links a {
+      font-size: var(--link-font);
+      font-weight: 500;
+      text-transform: uppercase;
+      color: var(--light);
+      position: relative;
+      transition: color .3s, transform .3s;
+      text-decoration: none;
+      line-height: 1;
+      padding-top: 2px;
+      letter-spacing: 1.2px;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 100%; height: 3px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s ease;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--primary);
+      transform: scale(1.07);
+    }
+    .nav-links a:hover::after, .nav-links a.active::after {
+      transform: scaleX(1);
+    }
+    main {
+    padding: 6rem 0.5vw 2rem 0.5vw;
+    width: 100%;
+    }
+    @keyframes slideIn { to { transform: translateY(0); opacity: 1; } }
+    h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid rgba(255,255,255,0.23);
+      padding-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+    .section { margin-bottom: var(--section-gap); }
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+      border-left: 2px solid var(--primary);
+      margin-top: 2rem;
+    }
+    .timeline-item {
+  margin-bottom: 2.2rem;
+  position: relative;
+  padding-left: 2.5rem;
+  background: rgba(255,255,255,0.04);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  transition: box-shadow .18s, transform .16s;
+  padding-top: 1.2rem; 
+  padding-bottom: 1.1rem;
+  padding-right: 2vw;
+  padding-left: 3vw;
+  max-width: 100%;
+  animation: fadeInUp .65s cubic-bezier(.23,.7,.32,1.2);
+}
+    .timeline-item:hover {
+      box-shadow: var(--card-hover-shadow);
+      transform: translateY(-2px) scale(1.012);
+    }
+    @keyframes fadeInUp {
+      from { opacity:0; transform: translateY(30px);}
+      to { opacity:1; transform: none;}
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute; left: 0; top: 1.3rem;
+      width: 12px; height: 12px; background: var(--primary);
+      border-radius: 50%; box-shadow: 0 0 6px rgba(255,215,0,0.7);
+    }
+    .timeline-item h3 {
+      font-size: 1.32rem;
+      color: #fff;
+      margin-bottom: 0.2rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .timeline-item .date {
+      font-size: 1.05rem;
+      color: #aaa;
+      position: absolute;
+      right: 1.2rem;
+      top: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    .timeline-item .desc {
+      font-size: 1.08rem;
+      color: #e6e6e6;
+      margin-top: 0.7rem;
+      line-height: 1.7;
+      margin-bottom: 0.1rem;
+      letter-spacing: 0.1px;
+    }
+    .tech-stack {
+      display: flex; flex-wrap: wrap; gap: var(--tech-gap);
+      margin-top: 0.6rem; margin-bottom: 0.2rem;
+    }
+    .tech-label {
+      background: var(--tech-bg);
+      color: var(--primary);
+      padding: var(--tech-padding);
+      border-radius: var(--tech-radius);
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      margin-right: 0.08em;
+    }
+    .btn-outline {
+      display: inline-block;
+      margin-top: 0.4rem;
+      padding: 0.45rem 1.2rem;
+      font-size: 0.92rem;
+      border: 2px solid var(--light);
+      border-radius: 2rem;
+      background: transparent;
+      color: var(--light);
+      transition: background .3s, color .3s, box-shadow .25s;
+      font-weight: 500;
+      box-shadow: 0 1px 4px 0 rgba(255,215,0,0.08);
+    }
+    .btn-outline:hover {
+      background: var(--primary);
+      color: var(--dark-bg);
+      border-color: var(--primary);
+      box-shadow: 0 4px 14px rgba(255,215,0,0.22);
+    }
+    .report-preview { margin-top: 1.2rem; }
+    iframe, img { border-radius: 10px; }
+
+    #back-to-top {
+      position: fixed; bottom: 2.5rem; right: 2.5rem;
+      background: var(--primary); color: var(--dark-bg);
+      border: none; padding: 0.7rem 1.2rem;
+      border-radius: 2rem; cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      opacity: 0.84; transition: opacity .3s;
+      font-size: 1.18rem; font-weight: bold;
+      display: none; 
+      z-index: 888;
+    }
+    #back-to-top:hover { opacity: 1; }
+
+    footer {
+      text-align: center; padding: 2rem 0; background: var(--dark-bg);
+      color: #777; font-size: 0.8rem; margin-top: 2.5rem;
+    }
+    @media (max-width: 700px) {
+      main { padding: 5rem 0.5rem 1.5rem; }
+      .timeline-item { padding-right: 1.1rem; }
+      .nav-links { gap: 1.1rem; }
+      h2 { font-size: 1.28rem; }
+      .timeline-item h3 { font-size: 1.04rem;}
+      .timeline-item .date { font-size: 0.92rem; right: 0.5rem;}
+    }
+
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳至主內容</a>
+  <nav>
+    <div class="nav-links">
+      <a href="./自我介紹.html">Home</a>
+      <a href="resume.html">Resume</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="./about.html">ABOUT</a>
+    </div>
+  </nav>
+  <main id="main-content" tabindex="-1">
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="timeline">
+        <div class="timeline-item" data-tech="Python,LightGBM,GPU,FeatureEngineering">
+          <h3>2025永豐AI GO競賽：股神對決</h3>
+          <div class="date">2025/03 – 2025/05</div>
+          <div class="desc">參加以 AI 預測台灣股市飆股增長型股票競賽，負責資料清理、特徵工程與 LightGBM 模型訓練，並以 F1-score 作為評估指標提交預測結果。</div>
+          <div class="tech-stack">
+            <span class="tech-label">Python</span>
+            <span class="tech-label">LightGBM</span>
+            <span class="tech-label">XGBoost</span>
+            <span class="tech-label">Optuna</span>
+            <span class="tech-label">資料清理</span>
+            <span class="tech-label">特徵工程</span>
+          </div>
+          <a href="project1.pdf" target="_blank" class="btn-outline">下載詳細介紹</a>
+          <div class="report-preview">
+            <iframe src="project1.pdf" width="100%" height="680" style="border:1px solid rgba(255,255,255,0.12);" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="timeline-item" data-tech="Python,LightGBM,GPU,Statistics">
+          <h3>AI CUP 2025 春季賽－桌球智慧球拍資料的精準分析競賽</h3>
+          <div class="date">2025/05 – 2025/06</div>
+          <div class="desc">使用 GPU 加速執行 LightGBM 分類器，結合基本統計特徵完成三折交叉驗證，最終輸出符合範本的 submission.csv，運行時間約 5 分鐘。</div>
+          <div class="tech-stack">
+            <span class="tech-label">Python</span>
+            <span class="tech-label">LightGBM</span>
+            <span class="tech-label">Pandas</span>
+            <span class="tech-label">NumPy</span>
+            <span class="tech-label">Scikit-learn</span>
+            <span class="tech-label">交叉驗證</span>
+            <span class="tech-label">特徵工程</span>
+            <span class="tech-label">Joblib</span>
+            <span class="tech-label">GPU</span>
+          </div>
+          <a href="full_pipeline.py" download class="btn-outline">下載程式碼</a>
+          <div class="report-preview">
+            <img src="submission_history.png" alt="Submission History" style="width:100%;border:1px solid rgba(255,255,255,0.12);" loading="lazy" / loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <button id="back-to-top" aria-label="回到頂端">▲</button>
+  <footer>
+    © 2025 曾鼎翔 | Powered by GitHub Pages
+  </footer>
+  <script>
+    const topBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      topBtn.style.display = window.scrollY > 400 ? 'block' : 'none';
+    });
+    topBtn.onclick = () => window.scrollTo({ top:0, behavior:'smooth' });
+  </script>
+  <script src="enhancements.js"></script>
+</body>
+</html>

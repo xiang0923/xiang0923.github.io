@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>曾鼎翔｜履歷</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="enhancements.css">
+  <meta name="description" content="曾鼎翔的個人網站，包括自我介紹、履歷、專案與關於我等內容。">
+  <meta property="og:title" content="曾鼎翔｜履歷">
+  <meta property="og:description" content="歡迎瀏覽曾鼎翔的履歷。">
+  <link rel="icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --primary:#FFD700; --dark-bg:#111; --light:#f5f5f5; --section-gap:4rem; --link-font: 1.6rem; }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Poppins',sans-serif;
+    background:#1f1f1f;
+    color:var(--light);
+    opacity:0;
+    animation:fadeIn 1s ease-out forwards;
+  }
+  @keyframes fadeIn { to { opacity:1; } }
+  nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--dark-bg);
+  padding: 1rem 0.1rem;
+  z-index: 100;
+  display: flex;
+  justify-content: flex-end;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  padding-right: 1.5rem;
+}
+.nav-links a {
+  font-size: 1.3rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--light);
+  position: relative;
+  transition: color .3s, transform .3s;
+  text-decoration: none;
+  line-height: 1;
+  padding-top: 2px;
+  letter-spacing: 1.2px;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 100%; height: 3px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s ease;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--primary);
+  transform: scale(1.07);
+}
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+}
+
+
+  main {
+    padding: 6rem 2rem 2rem;
+    width: 100%;
+    margin: 0;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideIn 0.8s ease-out forwards;
+    animation-delay: 0.5s;
+  }
+  @keyframes slideIn { to { transform: translateY(0); opacity: 1; } }
+  h2 {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 0.5rem;
+  }
+  .section { margin-bottom: var(--section-gap); }
+
+  .horizontal-timeline{
+    position:relative;
+    margin:3rem 0;
+    padding:2rem 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .horizontal-timeline::before{
+    content:'';
+    position:absolute;
+    top:50%;left:5%;right:5%;
+    height:4px;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,0.5),transparent);
+    transform:translateY(-50%);
+    opacity:0.5;
+    z-index:1;
+  }
+  .horizontal-timeline .event{
+    position:relative;
+    flex:1;
+    text-align:center;
+    z-index:2;
+  }
+  .horizontal-timeline .event .point{
+    display:inline-block;
+    width:16px; height:16px;
+    background:var(--primary);
+    border-radius:50%;
+    box-shadow:0 0 8px rgba(255,215,0,0.7);
+    position:relative;
+    top:-8px;
+    z-index:3;
+    transition:transform .3s;
+  }
+  .horizontal-timeline .event:hover .point{transform:scale(1.3);}
+  .horizontal-timeline .event::before{
+    content:'';
+    position:absolute;
+    top:50%; left:50%;
+    height:60px;
+    border-left:2px dashed rgba(255,255,255,0.3);
+    transform:translateX(-50%) translateY(0);
+    opacity:0.7;
+  }
+  .horizontal-timeline .event .label-top{
+    position:absolute;
+    bottom:100%;
+    left:50%;
+    transform:translateX(-50%);
+    background:rgba(30,30,30,0.8);
+    padding:0.6rem 1rem;
+    border-radius:6px;
+    font-size:0.9rem;
+    white-space:nowrap;
+    margin-bottom:0.8rem;
+    color:var(--light);
+    box-shadow:0 2px 6px rgba(0,0,0,0.5);
+  }
+  .horizontal-timeline .event .label-bottom{
+    position:absolute;
+    top:100%;
+    left:50%;
+    transform:translateX(-50%);
+    background:rgba(30,30,30,0.8);
+    padding:0.5rem 1rem;
+    border-radius:6px;
+    font-size:0.85rem;
+    white-space:nowrap;
+    margin-top:0.6rem;
+    color:var(--light);
+    box-shadow:0 2px 6px rgba(0,0,0,0.5);
+  }
+
+  .detail-list{margin-top:3rem;}
+  .timeline-item{margin-bottom:2rem;position:relative;padding-left:2.5rem;}
+  .timeline-item::before{content:'';position:absolute;left:0;top:0.5rem;width:12px;height:12px;background:var(--primary);border-radius:50%;box-shadow:0 0 6px rgba(255,215,0,0.7);}
+  .timeline-item h3{font-size:1.4rem;color:#fff;margin-bottom:0.3rem;}
+  .timeline-item .sub{font-size:1.1rem;color:#ccc;margin-bottom:0.5rem;}
+  .timeline-item .date{font-size:1.1rem;color:#aaa;position:absolute;right:0;top:0;font-weight:500;}
+  .timeline-item .desc{font-size:1.1rem;color:#ddd;margin-top:0.3rem;line-height:1.4;}
+
+  footer{text-align:center;padding:2rem 0;color:#777;font-size:0.8rem;}
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳至主內容</a>
+  <nav>
+    <div class="nav-links">
+      <a href="./自我介紹.html">Home</a>
+      <a href="./resume.html" class="active">Resume</a>
+      <a href="./projects.html">Projects</a>
+      <a href="./about.html">ABOUT</a>
+    </div>
+  </nav>
+  <main id="main-content" tabindex="-1">
+    <section class="section" id="education">
+      <h2>學歷</h2>
+      <div class="timeline-item">
+        <h3>國立臺東大學 綠資系 | 大學日間就讀中</h3>
+        <div class="date">2023/9 – 2027/6</div>
+      </div>
+      <div class="timeline-item">
+        <h3>市立松山工農 普通科 | 高中畢業</h3>
+        <div class="date">2021/9 – 2023/6</div>
+      </div>
+      <div class="timeline-item">
+        <h3>私立東山高中 資訊科技 | 國中(含)以下畢業</h3>
+        <div class="date">2018/9 – 2021/6</div>
+      </div>
+    </section>
+    <section class="section" id="skills">
+      <h2>修課清單</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+        <span style="background:#222;padding:0.5rem 1rem;border-radius:4px;">計算機概論</span>
+        <span style="background:#222;padding:0.5rem 1rem;border-radius:4px;">Python</span>
+        <span style="background:#222;padding:0.5rem 1rem;border-radius:4px;">Java</span>
+        <span style="background:#222;padding:0.5rem 1rem;border-radius:4px;">電路學</span>
+        <span style="background:#222;padding:0.5rem 1rem;border-radius:4px;">電子學</span>
+        <span style="background:#222;padding:0.5rem 1rem;border-radius:4px;">物理實驗</span>
+        <span style="background:#222;padding:0.5rem 1rem;border-radius:4px;">化學實驗</span>
+        <span style="background:#222;padding:0.5rem 1rem;border-radius:4px;">生物實驗</span>
+        <span style="background:#222;padding:0.5rem 1rem;border-radius:4px;">生成美學與數位時代的藝術實踐</span>
+        <span style="background:#222;padding:0.5rem 1rem;border-radius:4px;">HTML / CSS</span>
+        <span style="background:#222;padding:0.5rem 1rem;border-radius:4px;">生活與生物科技</span>
+        <span style="background:#222;padding:0.5rem 1rem;border-radius:4px;">數位電路設計</span>
+        <span style="background:#222;padding:0.5rem 1rem;border-radius:4px;">資訊媒體素養及理論</span>
+        <span style="background:#222;padding:0.5rem 1rem;border-radius:4px;">新興科技與當代社會</span>
+        <span style="background:#222;padding:0.5rem 1rem;border-radius:4px;">綠色科技及實作</span>
+        <span style="background:#222;padding:0.5rem 1rem;border-radius:4px;">電路設計及應用</span>
+        <span style="background:#222;padding:0.5rem 1rem;border-radius:4px;">能源管理系統</span>
+        <span style="background:#222;padding:0.5rem 1rem;border-radius:4px;">熱力學</span>
+      </div>
+    </section>
+    <section class="section" id="experience">
+      <h2>工作經驗 & 實習</h2>
+      <div class="horizontal-timeline">
+        <div class="event">
+          <div class="label-top">內場PT<br>2023/5 – 2023/6</div>
+          <div class="point"></div>
+          <div class="label-bottom">亞洲藏壽司股份有限公司</div>
+        </div>
+        <div class="event">
+          <div class="label-top">佈置人員<br>2023/7 – 2023/7</div>
+          <div class="point"></div>
+          <div class="label-bottom">緯帝有限公司</div>
+        </div>
+        <div class="event">
+          <div class="label-top">餐飲服務生<br>2023/7 – 2023/9</div>
+          <div class="point"></div>
+          <div class="label-bottom">國聯大飯店股份有限公司</div>
+        </div>
+        <div class="event">
+          <div class="label-top">搬運人員<br>2024/1 – 2024/2</div>
+          <div class="point"></div>
+          <div class="label-bottom">佳芳國際有限公司</div>
+        </div>
+        <div class="event">
+          <div class="label-top">工讀生<br>2024/7 – 2024/8</div>
+          <div class="point"></div>
+          <div class="label-bottom">臺北市稅捐稽徵處內湖分處</div>
+        </div>
+        <div class="event">
+          <div class="label-top">清潔人員<br>2025/1</div>
+          <div class="point"></div>
+          <div class="label-bottom">吉茂國際股份有限公司</div>
+        </div>
+      </div>
+      <div class="detail-list">
+        <div class="timeline-item">
+          <h3>內場PT – 亞洲藏壽司股份有限公司</h3>
+          <div class="sub">日式廚房 ｜ 臺北市信義區</div>
+          <div class="date">2023/5 – 2023/6</div>
+          <div class="desc">擔任握壽司人員，協助料理準備與出餐。</div>
+        </div>
+        <div class="timeline-item">
+          <h3>佈置人員 – 緯帝有限公司</h3>
+          <div class="sub">物品租賃 ｜ 臺北市中山區</div>
+          <div class="date">2023/7 – 2023/7</div>
+          <div class="desc">負責場地佈置與設備搬運，確保活動順利進行。</div>
+        </div>
+        <div class="timeline-item">
+          <h3>餐飲服務生 – 國聯大飯店股份有限公司</h3>
+          <div class="sub">餐飲業 (100~500人) ｜ 臺北市大安區</div>
+          <div class="date">2023/7 – 2023/9</div>
+          <div class="desc">擔任咖啡廳外場服務生，提供餐點及顧客服務。</div>
+        </div>
+        <div class="timeline-item">
+          <h3>搬運人員 – 佳芳國際有限公司</h3>
+          <div class="sub">包裝物流 ｜ 臺北市內湖區</div>
+          <div class="date">2024/1 – 2024/2</div>
+          <div class="desc">進行物流包裝與貨物運送，提升出貨效率。</div>
+        </div>
+        <div class="timeline-item">
+          <h3>工讀生 – 臺北市稅捐稽徵處內湖分處</h3>
+          <div class="sub">法律服務 ｜ 臺北市內湖區</div>
+          <div class="date">2024/7 – 2024/8</div>
+          <div class="desc">整理稅務資料、列印稅單、郵件收發及民眾服務。</div>
+        </div>
+        <div class="timeline-item">
+          <h3>清潔人員 – 吉茂國際股份有限公司</h3>
+          <div class="sub">環境清潔 ｜ 新北市新莊區</div>
+          <div class="date">2025/1</div>
+          <div class="desc">臨時工，負責尾牙場地清潔及整理工作。</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    © 2025 曾鼎翔 | Powered by GitHub Pages
+  </footer>
+  <script src="enhancements.js"></script>
+</body>
+</html>

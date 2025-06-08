@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>關於我｜曾鼎翔</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="enhancements.css">
+  <meta name="description" content="曾鼎翔的個人網站，包括自我介紹、履歷、專案與關於我等內容。">
+  <meta property="og:title" content="關於我｜曾鼎翔">
+  <meta property="og:description" content="歡迎瀏覽曾鼎翔的曾鼎翔。">
+  <link rel="icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #FFD700;
+      --dark-bg: #111;
+      --light: #f5f5f5;
+      --link-font: 1.3rem;
+      --transition: 0.4s ease-out;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1f1f1f 100%);
+      color: var(--light);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%;
+      background: rgba(17,17,17,0.85);
+      padding: 1rem 0;
+      display: flex; justify-content: flex-end;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+      backdrop-filter: blur(6px);
+      z-index: 100;
+      animation: slideDown var(--transition);
+    }
+    @keyframes slideDown { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+    .nav-links {
+      display: flex; gap: 2rem; align-items: center; padding-right: 2rem;
+    }
+    .nav-links a {
+      font-size: var(--link-font); font-weight: 500;
+      text-transform: uppercase; color: var(--light);
+      position: relative; transition: color .3s, transform .3s;
+      text-decoration: none; padding-bottom: 4px;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0;
+      width: 100%; height: 3px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--primary); transform: translateY(-2px);
+    }
+    .nav-links a:hover::after, .nav-links a.active::after {
+      transform: scaleX(1);
+    }
+    main {
+      width: 100%;
+      padding: 8rem 5vw 4rem;
+      animation: fadeIn var(--transition) 0.2s forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn { to { opacity: 1; } }
+    .content {
+      width: 100%;
+      background: rgba(30,30,30,0.92);
+      padding: 3rem 5vw;
+      border-radius: 0;
+      box-shadow: none;
+      max-width: none;
+    }
+    h1 {
+      font-size: 3rem; color: var(--primary);
+      margin-bottom: 2rem; letter-spacing: 2px;
+      border-bottom: 2px solid rgba(255,215,0,0.5);
+      padding-bottom: 0.6rem;
+      animation: fadeInUp 0.6s var(--transition);
+    }
+    h2 {
+      font-size: 2rem; color: var(--primary);
+      margin-top: 3rem; margin-bottom: 1rem;
+      position: relative;
+      animation: fadeInUp 0.6s var(--transition) 0.2s both;
+    }
+    h2::before {
+      content: '';
+      position: absolute; bottom: -6px; left: 0;
+      width: 60px; height: 4px;
+      background: var(--primary);
+    }
+    p, li {
+      font-size: 1.15rem; line-height: 1.8;
+      margin-bottom: 1rem; color: #ddd;
+      animation: fadeInUp 0.6s var(--transition) 0.4s both;
+    }
+    @keyframes fadeInUp {
+      from { opacity:0; transform: translateY(20px); }
+      to { opacity:1; transform: none; }
+    }
+    ul { margin-left: 1.5rem; }
+    .tag {
+      display: inline-block;
+      background: #222; color: var(--primary);
+      border-radius: 4px; padding: 0.2em 0.8em;
+      margin: 0.3em; transition: background .3s;
+    }
+    .tag:hover { background: #333; }
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+      animation: fadeInUp 0.6s var(--transition) 0.6s both;
+    }
+    .cert-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px; padding: 1rem;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .cert-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 48px rgba(255,215,0,0.3);
+    }
+    .cert-card img, .cert-card iframe {
+      width: 100%; height: 180px;
+      border-radius: 8px; margin-bottom: 0.8rem;
+      object-fit: cover;
+    }
+    .cert-card a {
+      display: inline-block; margin-top: 0.6rem;
+      color: var(--primary); text-decoration: none;
+      font-size: 1rem;
+    }
+    .cert-card a:hover { color: #fff; }
+    footer {
+      text-align: center; padding: 2rem 0;
+      color: #777; font-size: 0.9rem;
+    }
+    @media (max-width: 700px) {
+      .nav-links a { font-size: 1rem; }
+      .content { padding: 2rem 2vw; }
+      h1 { font-size: 2.2rem; }
+      h2 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳至主內容</a>
+  <nav>
+    <div class="nav-links">
+      <a href="自我介紹.html">HOME</a>
+      <a href="resume.html">RESUME</a>
+      <a href="projects.html">PROJECTS</a>
+      <a href="about.html" class="active">ABOUT</a>
+    </div>
+  </nav>
+  <main id="main-content" tabindex="-1">
+    <div class="content">
+      <h1>關於我</h1>
+      <p>我是曾鼎翔，目前就讀於台東大學綠能與資訊科技學系。性格開朗、負責，樂於嘗試不同工作，善於利用寒暑假空閒時間學習體驗各個行業，累積豐富工作經驗。我喜歡與人互動交流，也具備領導與執行能力，能在時間內高效完成任務。</p>
+      <h2>初始：國中資訊班</h2>
+      <p>加入資訊班後，除了打 coding、組裝機器人，也大幅提升邏輯思考能力與團隊合作經驗。</p>
+      <h2>煥然：志工活動與社團</h2>
+      <ul>
+        <li><span class="tag">動物園志工</span> 疫情期間協助統計入園人數、提醒民眾防疫，學習溝通與說服技巧。</li>
+        <li><span class="tag">交通服務隊</span> 每早6:30到校管理校門口交通秩序，培養責任感。</li>
+        <li><span class="tag">學藝股長</span> 記錄班會重點及課程內容，練習簡明扼要表達。</li>
+        <li><span class="tag">日文研究社</span> 探索日本文化、訓練基礎日語聽說能力。</li>
+        <li><span class="tag">校慶路跑</span> 鍛鍊體能與耐力。</li>
+      </ul>
+      <h2>延展：創業人才培訓營</h2>
+      <p>參與創業營時擔任小隊長，協調團隊並達成目標。學習Python、Java、.NET等課程，並深入機器學習、深度學習領域，積極參與T-brain賽事。</p>
+      <h2>淬鍊：寒暑假工讀</h2>
+      <ul>
+        <li><span class="tag">藏壽司</span> 內場工作，訓練效率與記憶力，學習辨識食材與鮮度，精準供餐。</li>
+        <li><span class="tag">國聯大飯店</span> 咖啡廳服務生，練習清晰溝通、分工協作，提升客戶滿意度。</li>
+      </ul>
+      <h2>證照與證明</h2>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <iframe src="upload_1712239118232.pdf" allowfullscreen></iframe>
+          <div>IC3 計算機證照</div>
+          <a href="upload_1712239118232.pdf" target="_blank">檢視 PDF</a>
+        </div>
+        <div class="cert-card">
+          <img src="IMG_6206.JPG" alt="LAVA TRI 志工證書" loading="lazy">
+          <div>LAVA TRI 志工證書</div>
+        </div>
+        <div class="cert-card">
+          <iframe src="研究倫理教育時數證明_曾鼎翔.pdf" allowfullscreen></iframe>
+          <div>研究倫理教育證明</div>
+          <a href="研究倫理教育時數證明_曾鼎翔.pdf" target="_blank">檢視 PDF</a>
+        </div>
+      </div>
+      <h2>關於未來</h2>
+      <p><b>短期：</b>以負責與積極進取態度快速融入團隊核心，提升解決問題能力。<br>
+         <b>長期：</b>期許成為具領導力的管理職，為公司創造更大價值。</p>
+    </div>
+  </main>
+  <footer>
+    © 2025 曾鼎翔 | Powered by GitHub Pages
+  </footer>
+  <script src="enhancements.js"></script>
+</body>
+</html>
